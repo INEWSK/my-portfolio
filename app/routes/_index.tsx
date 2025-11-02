@@ -54,52 +54,49 @@ export default function Home() {
           <AnimatedThemeSwitcher duration={600} />
         </div>
 
-        <div className="container mx-auto px-4">
-          <Card className="rounded shadow-none">
-            <CardContent className="flex flex-col items-center space-y-6 py-16">
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Perspiciatis vero voluptate temporibus earum eius. Sunt omnis
-                deleniti enim, fugiat non nam animi alias odio soluta possimus
-                architecto ipsam doloremque reprehenderit?
-              </p>
-
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Perspiciatis vero voluptate temporibus earum eius. Sunt omnis
-                deleniti enim, fugiat non nam animi alias odio soluta possimus
-                architecto ipsam doloremque reprehenderit?
-              </p>
-
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Perspiciatis vero voluptate temporibus earum eius. Sunt omnis
-                deleniti enim, fugiat non nam animi alias odio soluta possimus
-                architecto ipsam doloremque reprehenderit?
-              </p>
-
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Perspiciatis vero voluptate temporibus earum eius. Sunt omnis
-                deleniti enim, fugiat non nam animi alias odio soluta possimus
-                architecto ipsam doloremque reprehenderit?
-              </p>
-
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Perspiciatis vero voluptate temporibus earum eius. Sunt omnis
-                deleniti enim, fugiat non nam animi alias odio soluta possimus
-                architecto ipsam doloremque reprehenderit?
-              </p>
-
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Perspiciatis vero voluptate temporibus earum eius. Sunt omnis
-                deleniti enim, fugiat non nam animi alias odio soluta possimus
-                architecto ipsam doloremque reprehenderit?
-              </p>
-            </CardContent>
-          </Card>
+        <div className="container mx-auto max-w-4xl px-4">
+          <div className="flex flex-1 flex-col gap-6">
+            <Card className="rounded shadow-none">
+              <CardContent>
+                <p>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Perspiciatis vero voluptate temporibus earum eius. Sunt omnis
+                  deleniti enim, fugiat non nam animi alias odio soluta possimus
+                  architecto ipsam doloremque reprehenderit?
+                </p>
+              </CardContent>
+            </Card>
+            <Card className="rounded shadow-none">
+              <CardContent>
+                <p>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Perspiciatis vero voluptate temporibus earum eius. Sunt omnis
+                  deleniti enim, fugiat non nam animi alias odio soluta possimus
+                  architecto ipsam doloremque reprehenderit?
+                </p>
+              </CardContent>
+            </Card>
+            <Card className="rounded shadow-none">
+              <CardContent>
+                <p>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Perspiciatis vero voluptate temporibus earum eius. Sunt omnis
+                  deleniti enim, fugiat non nam animi alias odio soluta possimus
+                  architecto ipsam doloremque reprehenderit?
+                </p>
+              </CardContent>
+            </Card>
+            <Card className="rounded shadow-none">
+              <CardContent>
+                <p>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Perspiciatis vero voluptate temporibus earum eius. Sunt omnis
+                  deleniti enim, fugiat non nam animi alias odio soluta possimus
+                  architecto ipsam doloremque reprehenderit?
+                </p>
+              </CardContent>
+            </Card>
+          </div>
         </div>
 
         <footer>
