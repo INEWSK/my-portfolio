@@ -58,7 +58,7 @@ export const DrawLineText = ({
       setTextDimension({ width: totalWidth, height: maxHeight });
 
       const textChildren = children.filter(
-        (el) => el.getBoundingClientRect().width != 0
+        (el) => el.getBoundingClientRect().width != 0,
       );
 
       const tl = gsap.timeline();
@@ -80,7 +80,7 @@ export const DrawLineText = ({
         });
       }
     },
-    { scope: wrapperRef, dependencies: [text] }
+    { scope: wrapperRef, dependencies: [text] },
   );
 
   return (

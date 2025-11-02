@@ -42,7 +42,7 @@ export function meta({}: Route.MetaArgs) {
 
 export default function Home() {
   const images = slugs.map(
-    (slug) => `https://cdn.simpleicons.org/${slug}/${slug}`
+    (slug) => `https://cdn.simpleicons.org/${slug}/${slug}`,
   );
 
   return (
@@ -100,7 +100,7 @@ export default function Home() {
         </div>
 
         <footer>
-          <div className="mx-auto px-4 py-8 text-center text-sm text-muted-foreground">
+          <div className="text-muted-foreground mx-auto px-4 py-8 text-center text-sm">
             <p>© {new Date().getFullYear()} INEWSK. All rights reserved.</p>
           </div>
         </footer>

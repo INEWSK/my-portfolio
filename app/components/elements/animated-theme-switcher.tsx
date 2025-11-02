@@ -44,7 +44,7 @@ export function AnimatedThemeSwitcher({
     const y = top + height / 2;
     const maxRadius = Math.hypot(
       Math.max(left, window.innerWidth - left),
-      Math.max(top, window.innerHeight - top)
+      Math.max(top, window.innerHeight - top),
     );
 
     document.documentElement.animate(
@@ -58,13 +58,13 @@ export function AnimatedThemeSwitcher({
         duration,
         easing: "ease-in-out",
         pseudoElement: "::view-transition-new(root)",
-      }
+      },
     );
   };
 
   const handleThemeSelection = async (
     nextTheme: ThemeValue,
-    trigger: HTMLElement
+    trigger: HTMLElement,
   ) => {
     const currentVisual = getVisualTheme(theme);
     const nextVisual = getVisualTheme(nextTheme);
@@ -96,14 +96,14 @@ export function AnimatedThemeSwitcher({
       <div
         className={cn(
           "relative isolate inline-flex h-8 items-center rounded-full border border-dotted px-1",
-          className
+          className,
         )}
         {...props}
       >
         <div className="flex space-x-0">
-          <div className="size-6 rounded-full bg-input animate-pulse" />
-          <div className="size-6 rounded-full bg-input animate-pulse" />
-          <div className="size-6 rounded-full bg-input animate-pulse" />
+          <div className="bg-input size-6 animate-pulse rounded-full" />
+          <div className="bg-input size-6 animate-pulse rounded-full" />
+          <div className="bg-input size-6 animate-pulse rounded-full" />
         </div>
       </div>
     );
@@ -113,7 +113,7 @@ export function AnimatedThemeSwitcher({
     <div
       className={cn(
         "relative isolate inline-flex h-8 items-center rounded-full border border-dotted px-1",
-        className
+        className,
       )}
       {...props}
     >
@@ -130,7 +130,7 @@ export function AnimatedThemeSwitcher({
           className="group relative size-6 rounded-full transition duration-200 ease-out"
         >
           {theme === value && (
-            <div className="-z-1 absolute inset-0 rounded-full bg-muted" />
+            <div className="bg-muted absolute inset-0 -z-1 rounded-full" />
           )}
           <Icon
             className={`relative m-auto size-3.5 transition duration-200 ease-out ${

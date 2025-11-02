@@ -72,7 +72,7 @@ export const TiltCard = ({
         container.removeEventListener("mouseleave", handleMouseLeave);
       };
     },
-    { scope: containerRef }
+    { scope: containerRef },
   );
 
   return (
@@ -88,7 +88,7 @@ export const TiltCard = ({
         ref={highlightRef}
         className={cn(
           "absolute top-0 h-full w-full -translate-x-1/2 -translate-y-1/2 rounded-full blur-[28px] select-none",
-          highlightClassName
+          highlightClassName,
         )}
       />
     </div>

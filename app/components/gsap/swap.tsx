@@ -105,9 +105,9 @@ export const Swap = <T,>({
   const [enterVars, exitVars, finalVars] = useMemo(
     () =>
       Array.from({ length: 3 }, (_, i) =>
-        mergeVars(effects.map((e) => effectPresets[e][i]))
+        mergeVars(effects.map((e) => effectPresets[e][i])),
       ),
-    [effects]
+    [effects],
   );
 
   useGSAP(
@@ -130,7 +130,7 @@ export const Swap = <T,>({
         },
       });
     },
-    { dependencies: [state] }
+    { dependencies: [state] },
   );
 
   useGSAP(
@@ -146,7 +146,7 @@ export const Swap = <T,>({
         ease: "power2.out",
       });
     },
-    { dependencies: [currentState] }
+    { dependencies: [currentState] },
   );
 
   return (
