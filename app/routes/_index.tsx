@@ -2,7 +2,6 @@ import type { Route } from "./+types/_index";
 import { AnimatedThemeSwitcher } from "~/components/elements/animated-theme-switcher";
 import { DotPattern } from "~/components/ui/dot-pattern";
 import { Card, CardContent } from "~/components/ui/card";
-import { IconCloud } from "~/components/ui/icon-cloud";
 import { ScrollArea } from "~/components/ui/scroll-area";
 
 const slugs = [
