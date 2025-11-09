@@ -1,12 +1,14 @@
-"use client";
-
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
-import { type ComponentProps, useRef, useState } from "react";
+import { useTheme } from "next-themes";
+import { type ComponentProps, useEffect, useRef, useState } from "react";
+
+import { Skeleton } from "~/components/ui/skeleton";
 
 type DrawTextProps = {
   afterFill?: boolean;
   color?: string;
+  duration?: number;
   fontSize?: number;
   letterSpacing?: number;
   oneByOne?: boolean;
@@ -19,7 +21,8 @@ export const DrawLineText = ({
   text,
   oneByOne = true,
   afterFill = true,
-  color = "black",
+  color,
+  duration = 2.5,
   fontSize = 40,
   wordSpacing = 10,
   strokeWidth = 1,
@@ -27,14 +30,24 @@ export const DrawLineText = ({
   ...props
 }: DrawTextProps) => {
   const wrapperRef = useRef<SVGSVGElement | null>(null);
+  const { resolvedTheme } = useTheme();
 
   const [textDimension, setTextDimension] = useState<{
     height: number;
     width: number;
   }>({ height: 0, width: 0 });
 
+  const textColor = color ?? (resolvedTheme === "dark" ? "#fff" : "#000");
+
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
   useGSAP(
     () => {
+      if (!mounted) return;
       const wrapperChildren = wrapperRef.current?.children;
       if (!wrapperChildren) return;
       const children = Array.from(wrapperChildren) as SVGTextElement[];
@@ -63,7 +76,7 @@ export const DrawLineText = ({
       const tl = gsap.timeline();
       tl.to(textChildren, {
         strokeDashoffset: 0,
-        duration: 2.5,
+        duration,
         ease: "linear",
         stagger: oneByOne ? 0.8 : 0,
       });
@@ -79,8 +92,20 @@ export const DrawLineText = ({
         });
       }
     },
-    { scope: wrapperRef, dependencies: [text] },
+    { scope: wrapperRef, dependencies: [duration, text, mounted] },
   );
+
+  if (!mounted) {
+    return (
+      <Skeleton
+        className="inline-block"
+        style={{
+          width: `${Math.max(text.length, 1) * fontSize * 0.6}px`,
+          height: `${fontSize * 1.3}px`,
+        }}
+      />
+    );
+  }
 
   return (
     <svg
@@ -96,8 +121,8 @@ export const DrawLineText = ({
         <text
           key={i}
           style={{
-            stroke: color,
-            fill: color,
+            stroke: textColor,
+            fill: textColor,
             fillOpacity: 0,
             fontSize: fontSize,
             strokeWidth: `${strokeWidth}px`,

@@ -2,8 +2,10 @@ import { Github, Instagram, Mail, Newspaper, Send } from "lucide-react";
 import { Fragment } from "react";
 
 import { AnimatedThemeSwitcher } from "~/components/animated-theme-switcher";
-import { GlareCardDialog } from "~/components/glare-card-dialog";
+import { CometCardDialog } from "~/components/comet-card-dialog";
+import { DrawLineText } from "~/components/gsap/draw-line-text";
 import SimpleIconOrbitingCircles from "~/components/skill-orbiting-circles";
+import { Avatar, AvatarFallback, AvatarImage } from "~/components/ui/avatar";
 import { Badge } from "~/components/ui/badge";
 import { Card, CardContent, CardFooter } from "~/components/ui/card";
 import { DotPattern } from "~/components/ui/dot-pattern";
@@ -11,7 +13,7 @@ import { Highlighter } from "~/components/ui/highlighter";
 import { ScrollArea } from "~/components/ui/scroll-area";
 
 const tags = [
-  `${new Date().getFullYear() - 1998 - 1} y.o`, // エヘヘ
+  "1998 - Now", // エヘヘ
   "Junkcode Developer",
   "Photographer",
 ];
@@ -29,7 +31,7 @@ const socials = [
   },
   {
     label: "Instagram",
-    href: "https://www.instagram.com/airlues",
+    href: "https://www.instagram.com/inewsk",
     icon: Instagram,
   },
   {
@@ -58,21 +60,25 @@ export default function Home() {
           <div className="flex flex-col gap-6">
             <Card className="relative">
               <CardContent className="flex flex-col gap-6">
-                <div className="flex items-center gap-4">
-                  <GlareCardDialog
+                <div className="flex flex-wrap items-center gap-4">
+                  <CometCardDialog
                     renderTrigger={
-                      <div className="bg-muted/40 size-24 cursor-pointer overflow-hidden">
-                        <img
-                          src="https://im.inewsk.me/_next/image?url=%2Fassets%2Fimages%2Favatar.jpg&w=1920&q=75"
-                          alt="Portrait of Yuji Kurokawa"
-                          className="size-full object-cover"
-                          loading="lazy"
+                      <Avatar className="size-20 cursor-pointer">
+                        <AvatarImage
+                          src="/images/avatar.jpg"
+                          alt="Yuji Kurokawa"
                         />
-                      </div>
+                        <AvatarFallback>YK</AvatarFallback>
+                      </Avatar>
                     }
                   />
                   <div className="flex flex-col gap-2">
-                    <h1 className="text-2xl font-semibold">Yuji Kurokawa</h1>
+                    <DrawLineText
+                      text="Yuji Kurokawa"
+                      oneByOne={false}
+                      fontSize={24}
+                      duration={1.5}
+                    />
                     <p className="text-muted-foreground text-xs tracking-[0.25em] uppercase">
                       {tags.map((tag, index) => (
                         <Fragment key={tag}>
@@ -89,19 +95,21 @@ export default function Home() {
                 </div>
 
                 <div className="text-muted-foreground text-sm">
-                  <p className="leading-relaxed">
-                    I&apos;m a minimalist frontend engineer who crafts calm,
-                    fast interfaces, usually in React or whatever tool fits the
-                    idea. Since 2010 I&apos;ve been shipping tiny experiments
-                    that stick, guided by
+                  <p className="leading-7">
+                    The dude who ships fullstack Node.js stuff and instantly
+                    wishes I tossed in more confetti. Minimalist frontend
+                    engineer at heart, crafting calm fast interfaces in React or
+                    whatever tool actually fits the idea. Since 2010 I&apos;ve
+                    been dropping tiny experiments that somehow stick, all
+                    powered by
                     <span className="text-accent-foreground px-1">
                       <Highlighter action="underline">大道至簡</Highlighter>
                     </span>
-                    (simple stupid) and an obsession with small, joyful details.
-                    Off the clock I&apos;m an INFP recharging with rainy-day
-                    lofi, sci-fi rabbit holes, and analogue photography. If
-                    it&apos;s clean, quick, and a little weird, there&apos;s a
-                    good chance I built it.
+                    (simple stupid) and a weird obsession with small joyful
+                    details. Off the clock I&apos;m pure INFP recharging with
+                    rainy-day lofi, sci-fi rabbit holes, and analogue
+                    photography. If it&apos;s clean, quick, and a lil weird,
+                    there&apos;s a solid chance I built it.
                   </p>
                 </div>
               </CardContent>

@@ -3,6 +3,7 @@ import { AnimatePresence, motion } from "motion/react";
 import { type ReactElement, useState } from "react";
 
 import { Dialog, DialogPortal, DialogTrigger } from "~/components/ui/dialog";
+import { cn } from "~/lib/utils";
 
 import { CometCard } from "./ui/comet-card";
 
@@ -10,7 +11,7 @@ type GlareCardDialogProps = {
   renderTrigger?: ReactElement;
 };
 
-export function GlareCardDialog({ renderTrigger }: GlareCardDialogProps) {
+export function CometCardDialog({ renderTrigger }: GlareCardDialogProps) {
   const [open, setOpen] = useState(false);
 
   if (!renderTrigger) return null;
@@ -59,31 +60,32 @@ function DialogContent() {
     <CometCard translateDepth={0}>
       <button
         type="button"
-        className="flex w-80 cursor-pointer flex-col items-stretch rounded bg-[#1F2121] p-2 saturate-[1.2] focus-visible:outline-none md:p-4"
+        className={cn(
+          "flex w-80 cursor-pointer flex-col items-stretch rounded p-2 saturate-[1.2] focus-visible:outline-none md:p-4",
+          "bg-[#222]",
+        )}
         aria-label="View Lune Rousse"
         style={{
           transformStyle: "preserve-3d",
           transform: "none",
-          opacity: 1,
         }}
       >
-        <div className="mx-2 flex-1">
-          <div className="relative mt-2 aspect-3/4 w-full">
+        <div className="flex-1 p-2">
+          <div className="relative aspect-3/4">
             <img
               loading="lazy"
-              className="absolute inset-0 h-full w-full rounded bg-[#000000] object-cover contrast-75"
+              className="absolute inset-0 size-full rounded-xl object-cover contrast-75"
               alt="Lune Rousse"
               src="/images/lune-rousse.jpeg"
               style={{
                 boxShadow: "rgba(0, 0, 0, 0.05) 0px 5px 6px 0px",
-                opacity: 1,
               }}
             />
           </div>
         </div>
-        <div className="mt-2 flex shrink-0 items-center justify-between p-4 font-mono text-white">
-          <div className="text-xs">Blood Moon</div>
-          <div className="text-xs text-gray-300 opacity-50">
+        <div className="flex shrink-0 items-center justify-between p-4 font-mono">
+          <div className="text-xs text-white">Blood Moon</div>
+          <div className="text-muted-foreground text-xs opacity-50">
             {new Intl.DateTimeFormat("en-US", {
               year: "numeric",
               month: "long",

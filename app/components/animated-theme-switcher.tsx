@@ -97,10 +97,10 @@ export function AnimatedThemeSwitcher({
         )}
         {...props}
       >
-        <div className="flex space-x-0">
-          <div className="bg-input size-6 animate-pulse rounded-full" />
-          <div className="bg-input size-6 animate-pulse rounded-full" />
-          <div className="bg-input size-6 animate-pulse rounded-full" />
+        <div className="flex space-x-1">
+          <div className="bg-input size-5 animate-pulse rounded-full" />
+          <div className="bg-input size-5 animate-pulse rounded-full" />
+          <div className="bg-input size-5 animate-pulse rounded-full" />
         </div>
       </div>
     );
