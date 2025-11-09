@@ -1,27 +1,30 @@
+import pluginJs from "@eslint/js";
 import { defineConfig } from "eslint/config";
-import js from "@eslint/js";
+import simpleImportSort from "eslint-plugin-simple-import-sort";
 import globals from "globals";
 import tseslint from "typescript-eslint";
-import pluginReact from "eslint-plugin-react";
-import pluginReactHooks from "eslint-plugin-react-hooks";
-import pluginReactRefresh from "eslint-plugin-react-refresh";
 
 export default defineConfig([
-  { ignores: ["dist", "build", ".react-router"] },
-  js.configs.recommended,
-  ...tseslint.configs.recommended,
-  pluginReactHooks.configs.flat.recommended,
-  pluginReactRefresh.configs.recommended,
-  pluginReact.configs.flat.recommended,
   {
-    files: ["**/*.{ts,tsx}"],
+    ignores: ["dist", "build", ".react-router"],
+  },
+  pluginJs.configs.recommended,
+  ...tseslint.configs.recommended,
+  {
     languageOptions: {
-      ecmaVersion: 2022,
+      ecmaVersion: "latest",
+      sourceType: "module",
       globals: globals.browser,
     },
+  },
+  {
+    files: ["**/*.{ts,tsx,js,jsx}"],
+    plugins: {
+      "simple-import-sort": simpleImportSort,
+    },
     rules: {
-      "react/jsx-uses-react": "off",
-      "react/react-in-jsx-scope": "off",
+      "simple-import-sort/imports": "warn",
+      "simple-import-sort/exports": "warn",
     },
   },
 ]);

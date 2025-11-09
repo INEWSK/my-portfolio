@@ -1,20 +1,19 @@
+import { Github, Instagram, Mail, Newspaper, Send } from "lucide-react";
 import { Fragment } from "react";
 
-import { Github, Instagram, Mail, Newspaper, Send } from "lucide-react";
-
 import { AnimatedThemeSwitcher } from "~/components/animated-theme-switcher";
+import { GlareCardDialog } from "~/components/glare-card-dialog";
 import SimpleIconOrbitingCircles from "~/components/skill-orbiting-circles";
+import { Badge } from "~/components/ui/badge";
 import { Card, CardContent, CardFooter } from "~/components/ui/card";
 import { DotPattern } from "~/components/ui/dot-pattern";
-import { Badge } from "~/components/ui/badge";
-import { ScrollArea } from "~/components/ui/scroll-area";
 import { Highlighter } from "~/components/ui/highlighter";
-import { GlareCardDialog } from "~/components/glare-card-dialog";
+import { ScrollArea } from "~/components/ui/scroll-area";
 
 const tags = [
   `${new Date().getFullYear() - 1998 - 1} y.o`, // エヘヘ
-  "Photographer",
   "Junkcode Developer",
+  "Photographer",
 ];
 
 const socials = [
@@ -77,7 +76,7 @@ export default function Home() {
                     <p className="text-muted-foreground text-xs tracking-[0.25em] uppercase">
                       {tags.map((tag, index) => (
                         <Fragment key={tag}>
-                          <span>{tag}</span>
+                          <span title={tag}>{tag}</span>
                           {tags.length !== index && (
                             <span className="text-muted-foreground/60 px-2">
                               /

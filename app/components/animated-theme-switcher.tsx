@@ -1,10 +1,7 @@
-"use client";
-
-import type React from "react";
-import { useState } from "react";
-
 import { MonitorIcon, MoonIcon, SunIcon } from "lucide-react";
 import { useTheme } from "next-themes";
+import type React from "react";
+import { useEffect, useState } from "react";
 import { flushSync } from "react-dom";
 
 import { cn } from "~/lib/utils";
@@ -31,9 +28,9 @@ export function AnimatedThemeSwitcher({
   const { theme, setTheme, resolvedTheme, systemTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
 
-  if (typeof window !== "undefined" && !mounted) {
+  useEffect(() => {
     setMounted(true);
-  }
+  }, []);
 
   const getVisualTheme = (value?: string) =>
     value === "system" ? (systemTheme ?? resolvedTheme ?? value) : value;

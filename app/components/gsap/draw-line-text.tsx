@@ -1,9 +1,8 @@
 "use client";
 
-import { type ComponentProps, useRef, useState } from "react";
-
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
+import { type ComponentProps, useRef, useState } from "react";
 
 type DrawTextProps = {
   afterFill?: boolean;

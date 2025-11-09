@@ -1,11 +1,9 @@
-"use client";
-
-import { type ReactElement, useState } from "react";
-
 import * as DialogPrimitive from "@radix-ui/react-dialog";
 import { AnimatePresence, motion } from "motion/react";
+import { type ReactElement, useState } from "react";
 
 import { Dialog, DialogPortal, DialogTrigger } from "~/components/ui/dialog";
+
 import { CometCard } from "./ui/comet-card";
 
 type GlareCardDialogProps = {
@@ -61,8 +59,8 @@ function DialogContent() {
     <CometCard translateDepth={0}>
       <button
         type="button"
-        className="flex w-80 cursor-pointer flex-col items-stretch rounded bg-[#1F2121] p-2 saturate-0 focus-visible:outline-none md:p-4"
-        aria-label="View invite F7RA"
+        className="flex w-80 cursor-pointer flex-col items-stretch rounded bg-[#1F2121] p-2 saturate-[1.2] focus-visible:outline-none md:p-4"
+        aria-label="View Lune Rousse"
         style={{
           transformStyle: "preserve-3d",
           transform: "none",
@@ -74,8 +72,8 @@ function DialogContent() {
             <img
               loading="lazy"
               className="absolute inset-0 h-full w-full rounded bg-[#000000] object-cover contrast-75"
-              alt="Invite background"
-              src="https://images.unsplash.com/photo-1505506874110-6a7a69069a08?q=80&w=1287&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              alt="Lune Rousse"
+              src="/images/lune-rousse.jpeg"
               style={{
                 boxShadow: "rgba(0, 0, 0, 0.05) 0px 5px 6px 0px",
                 opacity: 1,
@@ -84,8 +82,14 @@ function DialogContent() {
           </div>
         </div>
         <div className="mt-2 flex shrink-0 items-center justify-between p-4 font-mono text-white">
-          <div className="text-xs">Comet Invitation</div>
-          <div className="text-xs text-gray-300 opacity-50">#F7RA</div>
+          <div className="text-xs">Blood Moon</div>
+          <div className="text-xs text-gray-300 opacity-50">
+            {new Intl.DateTimeFormat("en-US", {
+              year: "numeric",
+              month: "long",
+              day: "numeric",
+            }).format(new Date("2025-09-07"))}
+          </div>
         </div>
       </button>
     </CometCard>

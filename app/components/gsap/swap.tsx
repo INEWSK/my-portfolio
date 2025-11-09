@@ -1,3 +1,5 @@
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
 import {
   type ComponentProps,
   type ReactNode,
@@ -5,9 +7,6 @@ import {
   useRef,
   useState,
 } from "react";
-
-import { useGSAP } from "@gsap/react";
-import gsap from "gsap";
 
 const effectPresets = {
   slideUp: [
