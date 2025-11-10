@@ -3,13 +3,15 @@ import {
   type OrbitingCirclesProps,
 } from "./ui/orbiting-circles";
 
-type Props = {
+interface SimpleIconOrbitingCirclesProps extends OrbitingCirclesProps {
   slugs: string[];
-} & OrbitingCirclesProps;
+}
 
-export default function SimpleIconOrbitingCircles({ slugs, ...props }: Props) {
-
-  const items = slugs.map((slug) => (
+export function SimpleIconOrbitingCircles({
+  slugs,
+  ...props
+}: SimpleIconOrbitingCirclesProps) {
+  const items = slugs.map((slug: string) => (
     // usage: https://cdn.simpleicons.org/:icon_slug/:color?/:dark_mode_color?
     <img
       key={slug}

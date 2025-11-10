@@ -7,11 +7,11 @@ import { cn } from "~/lib/utils";
 
 import { CometCard } from "./ui/comet-card";
 
-type GlareCardDialogProps = {
+interface TiltCardDialogProps {
   renderTrigger?: ReactElement;
-};
+}
 
-export function CometCardDialog({ renderTrigger }: GlareCardDialogProps) {
+export function TiltCardDialog({ renderTrigger }: TiltCardDialogProps) {
   const [open, setOpen] = useState(false);
 
   if (!renderTrigger) return null;

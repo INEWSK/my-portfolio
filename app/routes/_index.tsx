@@ -1,10 +1,11 @@
 import { Github, Instagram, Mail, Newspaper, Send } from "lucide-react";
 import { Fragment } from "react";
 
-import { AnimatedThemeSwitcher } from "~/components/animated-theme-switcher";
-import { CometCardDialog } from "~/components/comet-card-dialog";
 import { DrawLineText } from "~/components/gsap/draw-line-text";
-import SimpleIconOrbitingCircles from "~/components/skill-orbiting-circles";
+import { SimpleIconOrbitingCircles } from "~/components/skill-orbiting-circles";
+import { AnimatedThemeSwitcher } from "~/components/theme-switcher";
+import { TiltCardDialog } from "~/components/tilt-card-dialog";
+import Timeline from "~/components/timeline";
 import { Avatar, AvatarFallback, AvatarImage } from "~/components/ui/avatar";
 import { Badge } from "~/components/ui/badge";
 import { Card, CardContent, CardFooter } from "~/components/ui/card";
@@ -46,6 +47,14 @@ const socials = [
   },
 ];
 
+const timelineItems = [
+  {
+    date: "2010",
+    title: "Started programming",
+    description: "I started programming with HTML and CSS.",
+  },
+];
+
 export default function Home() {
   return (
     <main className="relative min-h-screen">
@@ -61,7 +70,7 @@ export default function Home() {
             <Card className="relative">
               <CardContent className="flex flex-col gap-6">
                 <div className="flex flex-wrap items-center gap-4">
-                  <CometCardDialog
+                  <TiltCardDialog
                     renderTrigger={
                       <Avatar className="size-20 cursor-pointer">
                         <AvatarImage
@@ -147,6 +156,12 @@ export default function Home() {
                   radius={80}
                   reverse
                 />
+              </CardContent>
+            </Card>
+
+            <Card>
+              <CardContent>
+                <Timeline items={timelineItems} />
               </CardContent>
             </Card>
           </div>
