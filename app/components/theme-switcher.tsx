@@ -1,10 +1,14 @@
-import { MonitorIcon, MoonIcon, SunIcon } from "lucide-react";
 import { useTheme } from "next-themes";
 import type React from "react";
 import { useEffect, useState } from "react";
 import { flushSync } from "react-dom";
 
 import { cn } from "~/lib/utils";
+
+import { AirplayIcon } from "./animate-ui/icons/airplay";
+import { AnimateIcon } from "./animate-ui/icons/icon";
+import { MoonIcon } from "./animate-ui/icons/moon";
+import { SunIcon } from "./animate-ui/icons/sun";
 
 interface ThemeSwitcherMultiButtonProps
   extends React.HTMLAttributes<HTMLDivElement> {
@@ -13,7 +17,7 @@ interface ThemeSwitcherMultiButtonProps
 }
 
 const THEME_OPTIONS = [
-  { value: "system", icon: MonitorIcon, label: "Switch to system theme" },
+  { value: "system", icon: AirplayIcon, label: "Switch to system theme" },
   { value: "light", icon: SunIcon, label: "Switch to light theme" },
   { value: "dark", icon: MoonIcon, label: "Switch to dark theme" },
 ] as const;
@@ -124,19 +128,21 @@ export function AnimatedThemeSwitcher({
           onClick={(event) =>
             void handleThemeSelection(value, event.currentTarget)
           }
-          className="group relative size-6 rounded-full transition duration-200 ease-out"
+          className="group relative size-6 cursor-pointer rounded-full transition duration-200 ease-out"
         >
           {theme === value && (
             <div className="bg-muted absolute inset-0 -z-1 rounded-full" />
           )}
-          <Icon
-            className={`relative m-auto size-3.5 transition duration-200 ease-out ${
-              theme === value
-                ? "text-foreground"
-                : "text-secondary-foreground group-hover:text-foreground group-focus-visible:text-foreground"
-            }`}
-            aria-hidden="true"
-          />
+          <AnimateIcon animateOnHover animateOnTap>
+            <Icon
+              className={`relative m-auto size-3.5 transition duration-200 ease-out ${
+                theme === value
+                  ? "text-foreground"
+                  : "text-secondary-foreground group-hover:text-foreground group-focus-visible:text-foreground"
+              }`}
+              aria-hidden="true"
+            />
+          </AnimateIcon>
         </button>
       ))}
     </div>

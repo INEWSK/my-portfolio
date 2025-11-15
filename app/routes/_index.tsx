@@ -11,6 +11,7 @@ import { Badge } from "~/components/ui/badge";
 import { Card, CardContent, CardFooter } from "~/components/ui/card";
 import { DotPattern } from "~/components/ui/dot-pattern";
 import { Highlighter } from "~/components/ui/highlighter";
+import { MusicToggleButton } from "~/components/ui/music-toggle-button";
 import { ScrollArea } from "~/components/ui/scroll-area";
 
 const tags = [
@@ -61,7 +62,8 @@ export default function Home() {
       <DotPattern width={16} height={16} className="inset-0 z-0 opacity-40" />
 
       <ScrollArea className="h-screen w-full">
-        <div className="flex justify-end p-4">
+        <div className="flex justify-end gap-4 p-4">
+          <MusicToggleButton />
           <AnimatedThemeSwitcher duration={600} />
         </div>
 
