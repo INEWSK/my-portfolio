@@ -1,11 +1,10 @@
-import { Github, Instagram, Mail, Newspaper, Send } from "lucide-react";
+import { Github, Instagram, Mail, Send } from "lucide-react";
 import { Fragment } from "react";
 
 import { DrawLineText } from "~/components/gsap/draw-line-text";
 import { SimpleIconOrbitingCircles } from "~/components/skill-orbiting-circles";
 import { AnimatedThemeSwitcher } from "~/components/theme-switcher";
 import { TiltCardDialog } from "~/components/tilt-card-dialog";
-import Timeline from "~/components/timeline";
 import { Avatar, AvatarFallback, AvatarImage } from "~/components/ui/avatar";
 import { Badge } from "~/components/ui/badge";
 import { Card, CardContent, CardFooter } from "~/components/ui/card";
@@ -40,19 +39,6 @@ const socials = [
     label: "Telegram",
     href: "https://t.me/inewsk",
     icon: Send,
-  },
-  {
-    label: "Resume",
-    href: "https://cv.inewsk.me/",
-    icon: Newspaper,
-  },
-];
-
-const timelineItems = [
-  {
-    date: "2010",
-    title: "Started programming",
-    description: "I started programming with HTML and CSS.",
   },
 ];
 
@@ -161,11 +147,11 @@ export default function Home() {
               </CardContent>
             </Card>
 
-            <Card>
-              <CardContent>
-                <Timeline items={timelineItems} />
-              </CardContent>
-            </Card>
+            <div className="p-4">
+              <p className="text-muted-foreground text-center text-sm">
+                Page is under construction.
+              </p>
+            </div>
           </div>
         </div>
 

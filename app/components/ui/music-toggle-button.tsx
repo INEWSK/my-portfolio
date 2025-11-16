@@ -61,13 +61,13 @@ export const MusicToggleButton = () => {
         }}
         exit={{ opacity: 0, filter: "blur(4px)" }}
         transition={{ type: "spring", bounce: 0.35 }}
-        className="flex h-6 w-auto items-center gap-1 rounded-full px-4"
+        className="flex h-6 w-auto items-center gap-1 px-4"
       >
         {/* Waveform visualization */}
         {heights.map((height, index) => (
           <motion.div
             key={index}
-            className="bg-foreground w-px rounded-full"
+            className="bg-foreground w-px rounded-sm"
             initial={{ height: 1 }}
             animate={{
               height: Math.max(4, height * 14),

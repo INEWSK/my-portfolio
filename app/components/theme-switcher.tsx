@@ -1,8 +1,8 @@
 import { useTheme } from "next-themes";
 import type React from "react";
-import { useEffect, useState } from "react";
 import { flushSync } from "react-dom";
 
+import { useMounted } from "~/hooks/use-mounted";
 import { cn } from "~/lib/utils";
 
 import { AirplayIcon } from "./animate-ui/icons/airplay";
@@ -30,11 +30,7 @@ export function AnimatedThemeSwitcher({
   ...props
 }: ThemeSwitcherMultiButtonProps) {
   const { theme, setTheme, resolvedTheme, systemTheme } = useTheme();
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
+  const mounted = useMounted();
 
   const getVisualTheme = (value?: string) =>
     value === "system" ? (systemTheme ?? resolvedTheme ?? value) : value;
