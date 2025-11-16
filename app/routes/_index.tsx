@@ -1,4 +1,4 @@
-import { Github, Instagram, Mail, Send } from "lucide-react";
+import { Github, HeartIcon, Instagram, Mail, Send } from "lucide-react";
 import { Fragment } from "react";
 
 import { DrawLineText } from "~/components/gsap/draw-line-text";
@@ -16,7 +16,6 @@ import { ScrollArea } from "~/components/ui/scroll-area";
 const tags = [
   "1998 - Now", // エヘヘ
   "Junkcode Developer",
-  "Photographer",
 ];
 
 const socials = [
@@ -57,11 +56,12 @@ export default function Home() {
           <div className="flex flex-col gap-6">
             <Card className="relative">
               <CardContent className="flex flex-col gap-6">
-                <div className="flex flex-wrap items-center gap-4">
+                <div className="flex flex-col flex-wrap items-center gap-4 md:flex-row">
                   <TiltCardDialog
                     renderTrigger={
                       <Avatar className="size-20 cursor-pointer">
                         <AvatarImage
+                          className="transition-transform duration-600 hover:-rotate-6"
                           src="/images/avatar.jpg"
                           alt="Yuji Kurokawa"
                         />
@@ -69,30 +69,30 @@ export default function Home() {
                       </Avatar>
                     }
                   />
-                  <div className="flex flex-col gap-2">
+                  <div className="flex flex-col items-center md:items-start">
                     <DrawLineText
                       text="Yuji Kurokawa"
                       oneByOne={false}
                       fontSize={24}
                       duration={1.5}
                     />
-                    <p className="text-muted-foreground text-xs tracking-[0.25em] uppercase">
+                    <div className="text-muted-foreground mt-2 text-xs tracking-widest uppercase">
                       {tags.map((tag, index) => (
                         <Fragment key={tag}>
                           <span title={tag}>{tag}</span>
-                          {tags.length !== index && (
-                            <span className="text-muted-foreground/60 px-2">
+                          {tags.length !== index + 1 && (
+                            <span className="text-muted-foreground px-2">
                               /
                             </span>
                           )}
                         </Fragment>
                       ))}
-                    </p>
+                    </div>
                   </div>
                 </div>
 
                 <div className="text-muted-foreground text-sm">
-                  <p className="leading-7">
+                  <p>
                     The dude who ships fullstack Node.js stuff and instantly
                     wishes I tossed in more confetti. Minimalist frontend
                     engineer at heart, crafting calm fast interfaces in React or
@@ -147,17 +147,25 @@ export default function Home() {
               </CardContent>
             </Card>
 
-            <div className="p-4">
-              <p className="text-muted-foreground text-center text-sm">
-                Page is under construction.
-              </p>
-            </div>
+            <small className="text-muted-foreground self-center py-4">
+              Page is under construction.
+            </small>
           </div>
         </div>
 
         <footer>
-          <div className="text-muted-foreground mx-auto px-4 py-8 text-center text-sm">
-            <p>© {new Date().getFullYear()} INEWSK. All rights reserved.</p>
+          <div className="text-muted-foreground mx-auto flex flex-col gap-3 px-4 py-8 text-center">
+            <small>
+              © {new Date().getFullYear()} INEWSK. All rights reserved.
+            </small>
+            <small className="flex items-center justify-center gap-2">
+              Make with
+              <HeartIcon
+                fill="#d43f57"
+                className="animate-heartbeat size-3 text-[#d43f57]"
+              />
+              by YK
+            </small>
           </div>
         </footer>
       </ScrollArea>

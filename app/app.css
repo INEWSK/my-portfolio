@@ -66,6 +66,17 @@ body {
         rotate(calc((var(--angle) * -1deg) - 360deg));
     }
   }
+  --animate-heartbeat: heartbeat 1.5s ease-in-out infinite;
+  @keyframes heartbeat {
+    0%,
+    50%,
+    100% {
+      transform: scale(1);
+    }
+    25% {
+      transform: scale(1.1);
+    }
+  }
   --radius: 0rem;
   --tracking-tighter: calc(var(--tracking-normal) - 0.05em);
   --tracking-tight: calc(var(--tracking-normal) - 0.025em);
@@ -211,6 +222,32 @@ body {
   }
   body {
     @apply bg-background text-foreground;
+  }
+
+  /* typography styles */
+  h1 {
+    @apply scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl;
+  }
+  h2 {
+    @apply scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight first:mt-0;
+  }
+  h3 {
+    @apply scroll-m-20 text-2xl font-semibold tracking-tight;
+  }
+  h4 {
+    @apply scroll-m-20 text-xl font-semibold tracking-tight;
+  }
+  p {
+    @apply leading-7 not-first:mt-6;
+  }
+  blockquote {
+    @apply mt-6 border-l-2 pl-6 italic;
+  }
+  code {
+    @apply bg-muted relative rounded px-[0.3rem] py-[0.2rem] font-mono text-sm font-semibold;
+  }
+  small {
+    @apply text-sm leading-none;
   }
 }
 
